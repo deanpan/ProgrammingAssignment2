@@ -10,11 +10,11 @@
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL  ## set inverse matrix cached to NULL
   set <- function(y) { 
-    x <<- y   ## store the matrix
-    m <<- NULL  ## set the inverse matrix to NULL
+    x <<- y   ## store the matrix in the environment of its parent
+    m <<- NULL  ## set the inverse matrix to NULL in the environment of its parent
   }
   get <- function() x   ## get matrix stored
-  setinverse <- function(inverse) m <<- inverse  ## store inverse matrix
+  setinverse <- function(inverse) m <<- inverse  ## store inverse matrixin the environment of its parent
   getinverse <- function() m  ## get inverse matrix
   list(set = set, get = get,
        setinverse = setinverse,
